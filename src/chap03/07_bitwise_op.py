@@ -1,15 +1,16 @@
 import numpy as np, cv2
 
-image1 = np.zeros((300, 300), np.uint8)     		# 300행, 300열 검은색 영상 생성
-image2 = image1.copy()
+image1 = np.zeros((300, 300), np.uint8)
+# 300행, 300열 검은색 영상 생성
+image2 = image1.copy() # 똑같인 검은색
 
 h, w = image1.shape[:2]
-cx,cy  = w//2, h//2
-cv2.circle(image1, (cx,cy), 100, 255, -1)      		# 중심에 원 그리기
+cx,cy  = w//2, h//2 # cx=150, cy=150
+cv2.circle(image1, (cx,cy), 100, 255, -1)      # 중심에 원 그리기
 cv2.rectangle(image2, (0,0, cx, h), 255, -1)
 
 image3 = cv2.bitwise_or(image1, image2)
-image4 = cv2.bitwise_and(image1, image2)
+image4 = cv2.bitwise_and(image1, image2) # 둘 다 1일때만 반환
 image5 = cv2.bitwise_xor(image1, image2)
 image6 = cv2.bitwise_not(image1)
 

@@ -3,10 +3,10 @@ import numpy as np, cv2
 data = [10, 200, 5 , 7 ,  9,
         15, 35 , 60, 80, 170,
         100, 2 , 55, 37, 70]
-m1 = np.reshape(data, (3, 5))
-m2 = np.full((3, 5), 50)
+m1 = np.reshape(data, (3, 5)) # 3행 5열
+m2 = np.full((3, 5), 50) # 50으로 꽉 채운 3행 5열
 
-m_min = cv2.min(m1, 30)
+m_min = cv2.min(m1, 30) # 30이 넘으면 30으로 채움
 m_max = cv2.max(m1, m2)
 
 ## 행렬의 최솟값/최댓값과 그 좌표들을 반환
