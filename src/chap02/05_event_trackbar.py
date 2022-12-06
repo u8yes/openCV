@@ -19,3 +19,4 @@ cv2.imshow(title, image)
 cv2.createTrackbar("Brightness", title, image[0][0], 255, onChange)
 cv2.waitKey(0)
 cv2.destroyWindow(title) # 해당 특정 윈도우 창만 삭제
+
