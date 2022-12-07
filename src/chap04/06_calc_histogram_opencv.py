@@ -15,7 +15,7 @@ image = cv2.imread("images/pixel.jpg", cv2.IMREAD_GRAYSCALE)
 if image is None:
     raise Exception("영상 파일 읽기 오류 발생")
 
-hsize, ranges = [32], [0, 256]
+hsize, ranges = [32], [0, 256] # 32개 간격으로 빈도수를 표현하겠다는 것.
 gap = ranges[1] / hsize[0]
 ranges_gap = np.arange(0, ranges[1]+1, gap) # arange는 range와 동일한 기능이다.
 hist1 = calc_histo(image, hsize[0], ranges)
