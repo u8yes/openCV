@@ -29,9 +29,9 @@ dst = cv2.LUT(image, idx.astype('uint8')) # LookUp Table 사용
 # 최소, 최대값을 찾아서 0~255사이로 펼쳐주게끔 테이블로 만들어줌.
 # dst - destination
 # 현재는 dst가 스트레칭 되서 쫘악 퍼져있는 상태가 돼있음.
-hist_dst = cv2.calcHist([dst],[0], None, bsize, ranges)
+hist_dst = cv2.calcHist([dst], [0], None, bsize, ranges)
 
-hist_img = draw_histo(hist, (200,360))
+hist_img = draw_histo(hist, (200, 360))
 hist_dst_img = draw_histo(hist_dst, (200, 360))
 
 print("high_value=", high)
