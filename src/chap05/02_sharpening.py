@@ -35,6 +35,3 @@ cv2.imshow("sharpen2", sharpen2)
 cv2.waitKey(0)
 
 
-
-
-
