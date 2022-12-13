@@ -14,3 +14,30 @@ def scaling(img, size): # 크기 변경 함수
     i, j = np.int32(y * ratioY), np.int32(x * ratioX)
     dst[i, j] = img[y, x]
     return dst
+
+def scaling_nearest(img, size):
+    dst = np.zeros(size[::-1], img.dtype)
+    ratioY, ratioX = np.divide(size[::-1], img.shape[:2])
+    i = np.arange(0, size[1], 1)
+    j = np.arange(0, size[0], 1)
+    i, j = np.meshgrid(i, j)
+    y, x = np.int32(i / ratioY), np.int32(j / ratioX)
+    # 반올림 해주면 이웃픽셀까지 해당범위에 들어오게 되는 효과
+    dst[i, j] = img[y, x]
+
+    return dst
+
+image = cv2.imread("06_images/interpolation.jpg", cv2.IMREAD_GRAYSCALE)
+if image is None: raise Exception("영상 파일 읽기 에러")
+
+dst1 = scaling(image, (350, 400)) # 확대시킴
+dst2 = scaling_nearest(image, (350, 400))
+
+cv2.imshow("image", image)
+cv2.imshow("dst1-forward mapping", dst1)
+cv2.imshow("dst2-NN interpolation", dst2)
+
+cv2.waitKey(0)
+
+
+
