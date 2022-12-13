@@ -1,0 +1,8 @@
+def graph_image(data, lable, title, nsample):
+    plt.figure(num=title, figsize=(6, 9))
+    rand_idx = np.random.choice(range(data.shape[0]), nsample)
+    for i, id in enumerate(rand_idx):
+        img = data[id].reshape(28, 28)
+        plt.subplot(6, 4, i + 1), plt.axis('off'), plt.imshow(img, cmap='gray')
+        plt.title('%s: %d' % (title , lable[id]))
+    plt.tight_layout()
