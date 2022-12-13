@@ -1,6 +1,21 @@
 import numpy as np, cv2, math
 from Common.hough import accumulate, masking, select_lines
 
+image = cv2.imread("07_images/hough.jpg", cv2.IMREAD_GRAYSCALE)
+if image is None: raise Exception("영상 파일 읽기 에러")
+
+
+
+
+
+
+
+
+
+
+
+
+"""
 def houghLines(src, rho, theta, thresh):
     acc_mat = accumulate(src, rho, theta)  # 허프 누적 행렬 계산
     acc_dst = masking(acc_mat, 7, 3, thresh)  # 마스킹 처리 7행,3열
@@ -38,3 +53,4 @@ cv2.imshow("canny", canny)
 cv2.imshow("detected lines", dst1)
 cv2.imshow("detected lines_OpenCV", dst2)
 cv2.waitKey(0)
+"""
