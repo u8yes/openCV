@@ -11,12 +11,16 @@ size = image.shape[::-1]
 pt1 = np.array([(30, 70), (20, 240), (300, 110)], np.float32) # float32는 .0이 붙게 만듦.
 pt2 = np.array([(120, 20), (10, 180), (280, 260)], np.float32) # 1차원
 
-aff_mat = cv2.getAffineTransform(pt1, pt2) # affine 행렬 반환
-rot_mat = cv2.getRotationMatrix2D(center, angle, scale)
+aff_mat = cv2.getAffineTransform(pt1, pt2)
+rot_mat = cv2.getRotationMatrix2D(center, angle, scale) # affine 행렬 반환
 
-cv2.warpAffine()
+dst1 = cv2.warpAffine(image, aff_mat, size, cv2.INTER_LINEAR)
+dst2 = cv2.warpAffine(image, rot_mat, size, cv2.INTER_LINEAR)
 
-
+cv2.imshow("image", image)
+cv2.imshow("dst1-affine", dst1)
+cv2.imshow("dst2-affine_rotate", dst2)
+cv2.waitKey(0)
 
 
 
